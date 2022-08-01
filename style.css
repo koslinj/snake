@@ -13,6 +13,7 @@
 #scoreText{
     font-family: "Permanent Marker", cursive;
     font-size: 70px;
+    margin-top: 80px;
 }
 #resetBtn{
     font-family: "Permanent Marker", cursive;
@@ -23,4 +24,25 @@
     outline: none;
     border-radius: 10px;
     cursor: pointer;
+}
+.arrows{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.arrow{
+    width: 150px;
+    height: 80px;
+}
+.left{
+    transform: translate(45%, 50%);
+}
+.up{
+    transform: translate(55%);
+}
+.down{
+    transform: translate(-45%, 120%);
+}
+.right{
+    transform: translate(-35%, 50%);
 }

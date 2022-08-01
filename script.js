@@ -26,6 +26,10 @@ apple.src = './apple.png';
 
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
+document.querySelector('.left').addEventListener("click", turnLeft);
+document.querySelector('.right').addEventListener("click", turnRight);
+document.querySelector('.up').addEventListener("click", turnUp);
+document.querySelector('.down').addEventListener("click", turnDown);
 
 gameStart();
 
@@ -64,7 +68,7 @@ function createFood() {
     foodY = randomFood(0, gameHeight - unitSize);
 };
 function drawFood() {
-    ctx.drawImage(apple, 0, 0, 640, 720, foodX-5, foodY-5, 36, 36)
+    ctx.drawImage(apple, 0, 0, 640, 720, foodX - 5, foodY - 5, 36, 36)
 };
 function moveSnake() {
     const head = {
@@ -120,6 +124,38 @@ function changeDirection(event) {
             break;
     }
 };
+function turnLeft() {
+    const goingRight = (xVelocity == unitSize);
+
+    if(!goingRight){
+        xVelocity = -unitSize;
+        yVelocity = 0;
+    }  
+}
+function turnRight() {
+    const goingLeft = (xVelocity == -unitSize);
+
+    if(!goingLeft){
+        xVelocity = unitSize;
+        yVelocity = 0;
+    }  
+}
+function turnUp() {
+    const goingDown = (yVelocity == unitSize);
+
+    if(!goingDown){
+        xVelocity = 0;
+        yVelocity = -unitSize;
+    }  
+}
+function turnDown() {
+    const goingUp = (yVelocity == -unitSize);
+
+    if(!goingUp){
+        xVelocity = 0;
+        yVelocity = unitSize;
+    }  
+}
 function checkGameOver() {
     switch (true) {
         case (snake[0].x < 0):
@@ -143,8 +179,8 @@ function checkGameOver() {
             drawSnake();
             break;
     }
-    for(let i=1; i<snake.length; i+=1){
-        if(snake[i].x == snake[0].x && snake[i].y == snake[0].y){
+    for (let i = 1; i < snake.length; i += 1) {
+        if (snake[i].x == snake[0].x && snake[i].y == snake[0].y) {
             running = false;
         }
     }
@@ -153,7 +189,7 @@ function displayGameOver() {
     ctx.font = "50px MV Boli";
     ctx.fillStyle = "purple";
     ctx.textAlign = "center";
-    ctx.fillText("GAME OVER!", gameWidth/2, gameHeight/2)
+    ctx.fillText("GAME OVER!", gameWidth / 2, gameHeight / 2)
 };
 function resetGame() {
     clearTimeout(time);
