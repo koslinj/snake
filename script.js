@@ -8,7 +8,7 @@ const boardBackground = "beige";
 const snakeColor = "rgb(12, 177, 12)";
 const snakeBorder = "black";
 const foodColor = "red";
-const unitSize = 25;
+const unitSize = 20;
 let time;
 let running = false;
 let xVelocity = unitSize;
@@ -68,7 +68,7 @@ function createFood() {
     foodY = randomFood(0, gameHeight - unitSize);
 };
 function drawFood() {
-    ctx.drawImage(apple, 0, 0, 640, 720, foodX - 5, foodY - 5, 36, 36)
+    ctx.drawImage(apple, 0, 0, 640, 720, foodX - 5, foodY - 5, 30, 30)
 };
 function moveSnake() {
     const head = {

@@ -12,7 +12,7 @@
 }
 #scoreText{
     font-family: "Permanent Marker", cursive;
-    font-size: 70px;
+    font-size: 60px;
     margin-top: 80px;
 }
 #resetBtn{
@@ -45,4 +45,18 @@
 }
 .right{
     transform: translate(-35%, 50%);
+}
+.info{
+    margin-top: 100px;
+}
+@media screen and (max-width: 710px) {
+    .arrows{
+        width: 600px;
+    }
+    .info{
+        width: 600px;
+    }
+    #gameContainer{
+        width: 600px;
+    }
 }
